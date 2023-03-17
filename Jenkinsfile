@@ -13,27 +13,27 @@ pipeline {
                 script {
                     dir('terraform') {
                         sh "terraform init"
-                        // sh "terraform apply --auto-approve"
-                        sh "terraform destroy --auto-approve"
+                        sh "terraform apply --auto-approve"
+                        // sh "terraform destroy --auto-approve"
                     }
                 } 
             }
         }
-        // stage('deploy socks-shop') {
-        //     steps {
-        //         // 
-        //         script {
-        //             script {
-        //                 dir('deploy/kubernetes') {
-        //                     sh "aws eks update-kubeconfig --name myapp-eks-cluster"
-        //                     sh "kubectl create namespace sock-shop"
-        //                     sh "kubectl apply -f complete-demo.yaml"
-        //                     // sh "kubectl port-forward svc/kube-prometheus-stackr-prometheus 9090:9090"
-        //                     sh "kubectl create -f manifests-monitoring"
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
+        stage('deploy socks-shop') {
+            steps {
+                // 
+                script {
+                    script {
+                        dir('deploy/kubernetes') {
+                            sh "aws eks update-kubeconfig --name myapp-eks-cluster"
+                            sh "kubectl create namespace sock-shop"
+                            sh "kubectl apply -f complete-demo.yaml"
+                            // sh "kubectl port-forward svc/kube-prometheus-stackr-prometheus 9090:9090"
+                            sh "kubectl create -f manifests-monitoring"
+                        }
+                    }
+                }
+            }
+        }
     }
 }
