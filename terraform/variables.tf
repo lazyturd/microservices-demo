@@ -6,3 +6,12 @@ variable "region" {
     description = "aws region"
     default = "us-east-1"
 }
+
+variable "kube_config" {
+  type    = string
+  default = "~/.kube/config"
+}
+variable "kube-version" {
+  type = string
+  default = "36.2.0"
+}
