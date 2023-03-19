@@ -19,7 +19,7 @@ spec:
           path: "/"
           backend:
             service:
-              name: echo1
+              name: front-end
               port:
                 number: 80
 
