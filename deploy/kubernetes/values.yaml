@@ -1,0 +1,6 @@
+mongodb:
+  uri: "carts-db://carts-db:27017"
+
+serviceMonitor:
+  additionalLabels: 
+    release: prometheus

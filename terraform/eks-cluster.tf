@@ -6,6 +6,8 @@ module "eks" {
 
     cluster_endpoint_public_access  = true
 
+    enable_irsa = true
+
    cluster_addons = {
     coredns = {
       preserve    = true

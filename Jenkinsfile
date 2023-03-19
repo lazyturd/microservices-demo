@@ -19,21 +19,25 @@ pipeline {
                 } 
             }
         }
-        // stage('deploy socks-shop') {
-        //     steps {
-        //         // 
-        //         script {
-        //             script {
-        //                 dir('deploy/kubernetes') {
-        //                     sh "aws eks update-kubeconfig --name myapp-eks-cluster"
-        //                     sh "kubectl create namespace sock-shop"
-        //                     sh "kubectl apply -f complete-demo.yaml"
-        //                     // sh "kubectl port-forward svc/kube-prometheus-stackr-prometheus 9090:9090"
-        //                     sh "kubectl create -f manifests-monitoring"
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
+        stage('deploy socks-shop') {
+            steps {
+                // 
+                script {
+                    script {
+                        dir('deploy/kubernetes') {
+                            sh "aws eks update-kubeconfig --name myapp-eks-cluster"
+                            sh "kubectl create namespace sock-shop"
+                            sh "kubectl apply -f complete-demo.yaml"
+                            sh "kubectl apply -f frontend_ingress.yaml"
+                            sh "kubectl create -f staging_issuer.yaml"
+                            sh "kubectl create -f prod_issuer.yaml"
+                            // sh "kubectl create -f manifests-monitoring"
+                            // sh "helm repo add prometheus-community https://prometheus-community.github.io/helm-charts"
+                            // sh "helm install mongodb-exporter prometheus-community/prometheus-mongodb-exporter -f values.yaml"
+                        }
+                    }
+                }
+            }
+        }
     }
 }
