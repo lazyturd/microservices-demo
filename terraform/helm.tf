@@ -29,7 +29,7 @@ resource "helm_release" "cert_manager" {
   # }
   
   values = [
-    "${file("helm_values/values-cert-manager.yaml")}"
+    "${file("microservices-demo/terraform/helm_values.tf/values-cert-manager.yaml")}"
   ]
 }
 
