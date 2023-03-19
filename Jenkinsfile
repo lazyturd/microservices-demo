@@ -15,8 +15,8 @@ pipeline {
                     dir('terraform') {
                         // sh "terraform login"
                         sh "terraform init"
-                        // sh "terraform apply --auto-approve"
-                        sh "terraform destroy --auto-approve"
+                        sh "terraform apply --auto-approve"
+                        // sh "terraform destroy --auto-approve"
                     }
                 } 
             }
