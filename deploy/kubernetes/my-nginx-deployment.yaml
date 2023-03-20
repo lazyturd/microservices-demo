@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: nginx-app
-        image: mynginx:firsttry 
+        image: lazyturd/mynginx:firsttry 
         ports:
         - containerPort: 80
 ---
