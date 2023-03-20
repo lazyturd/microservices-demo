@@ -21,12 +21,12 @@ pipeline {
                 } 
             }
         }
-        // stage('deploy socks-shop') {
-        //     steps {
-        //         // 
-        //         script {
-        //             script {
-        //                 dir('deploy/kubernetes') {
+        stage('deploy socks-shop') {
+            steps {
+                // 
+                script {
+                    script {
+                        dir('deploy/kubernetes') {
                             sh "aws eks update-kubeconfig --name myapp-eks-cluster"
                             sh "kubectl create namespace sock-shop"
                             sh "kubectl apply -f complete-demo.yaml"
@@ -39,10 +39,10 @@ pipeline {
                             sh "helm install mongodb-exporter prometheus-community/prometheus-mongodb-exporter -f values.yaml"
                             sh "kubectl create namespace nginx"
                             sh  "kubectl apply -f nginx-deployment.yaml"
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
