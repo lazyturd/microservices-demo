@@ -38,7 +38,7 @@ pipeline {
                             // sh "helm repo add prometheus-community https://prometheus-community.github.io/helm-charts"
                             // sh "helm install mongodb-exporter prometheus-community/prometheus-mongodb-exporter -f values.yaml"
                             // sh "kubectl create namespace nginx"
-                            sh  "kubectl apply -f nginx-deployment.yaml"
+                            sh  "kubectl apply -f my-nginx-deployment.yaml"
                         }
                     }
                 }
