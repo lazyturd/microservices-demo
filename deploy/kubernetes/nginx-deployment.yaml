@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nginx-deployment
   labels:
-    app: web
+    app: nginx
   namespace: nginx
 spec:
   selector:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: my_nginx_firsttry
+        image: my_nginx:firsttry
         ports:
         - containerPort: 80
 ---
