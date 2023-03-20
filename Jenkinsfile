@@ -28,17 +28,16 @@ pipeline {
                     script {
                         dir('deploy/kubernetes') {
                             sh "aws eks update-kubeconfig --name myapp-eks-cluster"
-                            // sh "kubectl create namespace sock-shop"
-                            // sh "kubectl apply -f complete-demo.yaml"
-        //                     // sh "kubectl apply -f frontend_ingress.yaml"
-        //                     // sh "wget --save-headers -O- sock-shop.ayomide.shop"
-        //                     // sh "kubectl create -f staging_issuer.yaml"
-        //                     // sh "kubectl create -f prod_issuer.yaml"
-                            // sh "kubectl create -f manifests-monitoring"
-                            // sh "helm repo add prometheus-community https://prometheus-community.github.io/helm-charts"
-                            // sh "helm install mongodb-exporter prometheus-community/prometheus-mongodb-exporter -f values.yaml"
-                            // sh "kubectl create namespace nginx"
-                            sh "kubectl delete all --all -n nginx"
+                            sh "kubectl create namespace sock-shop"
+                            sh "kubectl apply -f complete-demo.yaml"
+                            sh "kubectl apply -f frontend_ingress.yaml"
+                            sh "wget --save-headers -O- sock-shop.ayomide.shop"
+                            sh "kubectl create -f staging_issuer.yaml"
+                            sh "kubectl create -f prod_issuer.yaml"
+                            sh "kubectl create -f manifests-monitoring"
+                            sh "helm repo add prometheus-community https://prometheus-community.github.io/helm-charts"
+                            sh "helm install mongodb-exporter prometheus-community/prometheus-mongodb-exporter -f values.yaml"
+                            sh "kubectl create namespace nginx"
                             sh  "kubectl apply -f my-nginx-deployment.yaml"
                         }
                     }
