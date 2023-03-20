@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: my_nginx:firsttry
+        image: mynginx:firsttry 
         ports:
         - containerPort: 80
 ---
