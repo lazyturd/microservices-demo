@@ -30,7 +30,7 @@ pipeline {
                             sh "aws eks update-kubeconfig --name myapp-eks-cluster"
                             // sh "kubectl create namespace sock-shop"
                             sh "kubectl apply -f complete-demo.yaml"
-                            sh "kubectl apply -f frontend_ingress.yaml"
+                            // sh "kubectl apply -f frontend_ingress.yaml"
                             // sh "wget --save-headers -O- sock-shop.ayomide.shop"
                             // sh "kubectl create -f staging_issuer.yaml"
                             // sh "kubectl create -f prod_issuer.yaml"
