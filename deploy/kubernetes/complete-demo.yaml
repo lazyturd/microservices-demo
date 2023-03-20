@@ -313,8 +313,8 @@ spec:
   # type: LoadBalancer
   ports:
   - port: 80
-    name: http
-    protocol: TCP
+    # name: http
+    # protocol: TCP
     targetPort: 8079
     # nodePort: 30001
   selector:
